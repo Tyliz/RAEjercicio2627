@@ -1,0 +1,30 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --transparent: #fff0;
+  --backdrop-color: #ffffff84;
+  --primary-bg-color: #fff;
+  --primary-color: #4b0070;
+  --danger-color: #b30000;
+  --danger-font-color: #ffffff;
+  --danger-bg-color: #d75555;
+  --succesful-color: #00b74f;
+  --warning-color: #d7c500;
+}
+
+$transparent: var(--transparent);
+$backdrop-color: var(--backdrop-color);
+$primary-bg-color: var(--primary-bg-color);
+$primary-color: var(--primary-color);
+$danger-color: var(--danger-color);
+$danger-bg-color: var(--danger-bg-color);
+$danger-font-color: var(--danger-font-color);
+$succesful-color: var(--succesful-color);
+$warning-color: var(--warning-color);
