@@ -1,0 +1,359 @@
+@use 'root';
+
+
+.task {
+  cursor: pointer;
+  text-decoration: none;
+
+  &--completed {
+    color: root.$succesful-color;
+    text-decoration: line-through;
+    text-decoration-color: root.$succesful-color;
+  }
+
+  &--pending {
+    color: root.$warning-color;
+    text-decoration: none;
+  }
+}
+
+
+.nav {
+  width: 100vw;
+  height: min(8vh);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: root.$primary-bg-color;
+  border-bottom: 0.2rem solid root.$primary-color;
+  background: root.$primary-color;
+}
+
+.link {
+  padding: .2rem;
+  margin: 0 .2rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-weight: bold;
+  border-bottom: 0.15rem solid root.$transparent;
+
+  &:hover {
+    border-bottom: 0.15rem solid root.$primary-color;
+  }
+
+  &:active {
+    color: root.$primary-color;
+  }
+}
+
+.nav-link {
+  @extend .link;
+  color: root.$primary-bg-color;
+
+  &:hover {
+    border-bottom: 0.15rem solid root.$primary-bg-color;
+  }
+
+  &:active {
+    color: root.$primary-bg-color;
+  }
+}
+
+.form-container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field {
+  background: root.$primary-bg-color;
+  display: grid;
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  min-height: 4rem;
+  margin-top: 1.5rem;
+  gap: .25rem;
+  margin-bottom: .5rem;
+
+  &__label {
+    position: absolute;
+    top: .5rem;
+    background: root.$transparent;
+    margin: 0 .5rem;
+    left: 0;
+    color: root.$primary-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 450ms;
+  }
+
+  &__input {
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    padding: .5rem .5rem 0.1rem .5rem;
+    border: 0.12rem solid root.$primary-color;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    height: 2rem;
+    min-height: 2rem;
+    border-radius: 0.5rem;
+
+    &:focus {
+      border-color: root.$primary-color;
+      outline: 0.1rem solid root.$primary-color;
+      box-shadow: .2rem .2rem .5rem root.$primary-color;
+    }
+
+    &--invalid {
+      border-color: root.$danger-color;
+      outline: 0.1rem solid root.$danger-color;
+      box-shadow: .2rem .2rem .5rem root.$danger-color;
+    }
+  }
+
+  &__input:focus + &__label,
+  &__input:not([value='']) + &__label {
+    background: root.$primary-bg-color;
+    top: -1rem;
+
+    &::after {
+      content: ':';
+    }
+  }
+}
+
+.select-form {
+  margin-left: 0.5rem;
+  max-width: 100%;
+  padding: .1rem .5rem 0.1rem .5rem;
+  border: 0.12rem solid root.$primary-color;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  height: 2rem;
+  min-height: 2rem;
+  border-radius: 0.5rem;
+
+  &:focus {
+    border-color: root.$primary-color;
+    outline: 0.1rem solid root.$primary-color;
+    box-shadow: .2rem .2rem .5rem root.$primary-color;
+  }
+}
+
+.error-message {
+  position: relative;
+  width: 100%;
+  font-size: .9rem;
+  color: root.$danger-color;
+}
+
+.btn {
+  font-size: 1rem;
+  color: root.$primary-color;
+  border: 0.15rem solid root.$primary-color;
+  border-radius: 0.3rem;
+  background: root.$primary-bg-color;
+  padding: 0.5rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: root.$primary-bg-color;
+    background-color: root.$primary-color;
+  }
+}
+
+.btn-danger {
+  @extend .btn;
+  color: root.$danger-font-color;
+  border-color: root.$danger-color;
+  background: root.$danger-bg-color;
+
+  &:hover {
+    cursor: pointer;
+    color: root.$danger-bg-color;
+    background-color: root.$danger-font-color;
+  }
+}
+
+.icon{
+  font-size: 1.5rem;
+
+  &--not-checked {
+    color: root.$warning-color;
+  }
+
+  &--checked {
+    color: root.$succesful-color;
+  }
+
+  &--btn {
+    cursor: pointer;
+  }
+}
+
+.btn-menu-icon {
+  @extend .btn;
+  display: grid;
+  width: min(10rem, 100%);
+  place-items: center;
+
+  &__icon {
+    font-size: 2.5rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+  }
+}
+
+.paginator {
+	display: grid;
+	width: 95%;
+	gap: 0.15rem;
+	grid-auto-columns: minmax(2rem, max-content);
+	grid-auto-flow: column;
+	place-content: center;
+}
+
+.btn-page {
+  color: root.$primary-color;
+  text-decoration: none;
+  border: 0.15rem solid root.$primary-color;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  text-align: center;
+
+  &.actual {
+    cursor: default;
+    background-color: root.$primary-color;
+    color: root.$primary-bg-color;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: root.$primary-color;
+    color: root.$primary-bg-color;
+  }
+}
+
+.table {
+  width: 100%;
+  border: .1rem solid root.$primary-color;
+  border-radius: .3rem;
+  border-spacing: 0;
+
+  &__head-col {
+    border-bottom: .1rem solid root.$primary-color;
+
+    &:first-child {
+      width: auto;
+    }
+  }
+
+  &__col {
+    border-bottom: .1rem solid root.$primary-color;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__row {
+    &:last-child .table__col {
+      border: none;
+    }
+  }
+}
+
+.message {
+  width: auto;
+  max-width: 100%;
+  border: .15rem solid root.$primary-color;
+  box-shadow: .2rem .2rem .5rem root.$primary-color;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-size: 1rem;
+
+  &--error {
+    color: root.$danger-font-color;
+    background: root.$danger-bg-color;
+    border-color: root.$danger-color;
+    box-shadow: .2rem .2rem .5rem root.$danger-color;
+  }
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: root.$backdrop-color;
+  display: grid;
+  grid-template-rows: 20rem auto;
+  justify-items: center;
+
+  &__wheel {
+    opacity: 70%;
+    border-width: 3rem;
+    border-style: dotted;
+    border-color: root.$primary-color;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    align-self: self-end;
+    animation-name: loading-wheel;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    &--solid {
+      border-style: solid;
+      border-color: root.$primary-color root.$transparent root.$primary-color root.$transparent;
+      animation-duration: 1.2s;
+    }
+  }
+
+  &__text {
+    color: root.$primary-color;
+    font-weight: bold;
+    font-size: xx-large;
+
+    &--after::after {
+      content: ' ';
+      animation-timing-function: linear;
+      animation-direction: alternate;
+      animation-name: loading-points;
+      animation-duration: 1.2s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes loading-points {
+  0% {
+    content: ' ';
+  }
+  10% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+
+@keyframes loading-wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
